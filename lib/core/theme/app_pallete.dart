@@ -5,7 +5,7 @@ class AppPallete {
   static const Color blackColor = Color(0xFF000000);
   static const Color primaryColor = Color(0xFF0A7AFF);
   static const Color primaryHardColor = Color(0xFF1443C3);
-  static const Color blackGradient4 = Color(0xFF1F1F22);
+  static const Color textfieldBorder = Color(0xFFCBD2E0);
   static const Color gradient1 = Color(0xFFA691E6);
   static const Color gradient2 = Color(0xFF69E9E9);
   static const Color borderColor = Color(0xF5F7FA3D);

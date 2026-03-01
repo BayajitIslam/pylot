@@ -3,6 +3,7 @@ import 'package:pylot/core/constant/app_images.dart';
 import 'package:pylot/core/constant/app_strings.dart';
 import 'package:pylot/core/theme/app_pallete.dart';
 import 'package:pylot/core/utils/screen_size.dart';
+import 'package:pylot/features/authentication/presentation/pages/sign_In_page.dart';
 import 'package:pylot/features/onboarding/presentation/widgets/progress_button.dart';
 import 'package:pylot/features/onboarding/presentation/widgets/slide_five.dart';
 import 'package:pylot/features/onboarding/presentation/widgets/slide_for.dart';
@@ -49,9 +50,8 @@ class _OnboardingPageState extends State<OnboardingPage> {
         curve: Curves.easeInOut,
       );
     } else {
-      debugPrint('Navigate to Home');
-      // Navigate to Home
-      // Navigator.pushReplacementNamed(context, '/home');
+      // Navigate to Signin
+      Navigator.push(context, SignInPage.route());
     }
   }
 
