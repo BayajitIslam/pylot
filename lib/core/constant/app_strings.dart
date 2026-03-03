@@ -19,6 +19,11 @@ class AppStrings {
   static const String emailaddress = "Email Addess";
   static const String password = "Password";
   static const String forgotPassword = "Forgot Password?";
-  static const String dontHaveAnAccount = "Don't have an account?";
+  static const String dontHaveAnAccount = "Don't have an account? ";
   static const String exampleEmail = "example@example.com";
+  static const String examplePassword = "Re Type Password";
+  static const String acceptTerms =
+      "By clicking the “sign up” button, you accept the terms of the ";
+  static const String privacyPolicy = "Privacy Policy";
+  static const String alreadyHaveAnAccount = "Already have an account? ";
 }

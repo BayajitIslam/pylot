@@ -4,22 +4,24 @@ import 'package:pylot/core/constant/app_strings.dart';
 import 'package:pylot/core/theme/app_pallete.dart';
 import 'package:pylot/core/utils/screen_size.dart';
 import 'package:pylot/core/widgets/primary_button.dart';
-import 'package:pylot/features/authentication/presentation/pages/sign_up_page.dart';
+import 'package:pylot/features/authentication/presentation/pages/sign_in_page.dart';
 import 'package:pylot/features/authentication/presentation/widgets/auth_field.dart';
 import 'package:pylot/features/authentication/presentation/widgets/dotted_line_painter.dart';
 import 'package:pylot/features/authentication/presentation/widgets/social_button.dart';
 
-class SignInPage extends StatelessWidget {
+class SignUpPage extends StatelessWidget {
   //route
   static MaterialPageRoute<dynamic> route() =>
-      MaterialPageRoute(builder: (context) => SignInPage());
+      MaterialPageRoute(builder: (context) => SignUpPage());
 
   //constructor
-  SignInPage({super.key});
+  SignUpPage({super.key});
 
   //controller
   final TextEditingController _emailcontroller = TextEditingController();
   final TextEditingController _passwordcontroller = TextEditingController();
+  final TextEditingController _retypepasswordcontroller =
+      TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +47,7 @@ class SignInPage extends StatelessWidget {
               Align(
                 alignment: AlignmentGeometry.centerLeft,
                 child: Text(
-                  AppStrings.signIn,
+                  AppStrings.signUp,
                   style: Theme.of(context).textTheme.titleLarge!.copyWith(
                     fontSize: 22,
                     fontWeight: FontWeight.bold,
@@ -67,7 +69,16 @@ class SignInPage extends StatelessWidget {
               AuthField(
                 controller: _passwordcontroller,
                 lebel: AppStrings.password,
-                isForgotPassword: true,
+                isObscure: true,
+                isPassword: true,
+                hintText: '**********',
+              ),
+
+              //rePassword TextField
+              SizedBox(height: context.spacing24),
+              AuthField(
+                controller: _retypepasswordcontroller,
+                lebel: AppStrings.password,
                 isObscure: true,
                 isPassword: true,
                 hintText: '**********',
@@ -75,9 +86,32 @@ class SignInPage extends StatelessWidget {
 
               //Error
 
-              //Sign In Button
+              //Sign Up Button
               SizedBox(height: context.spacing24),
-              PrimaryButton(buttonName: AppStrings.signIn),
+              PrimaryButton(buttonName: AppStrings.signUp),
+
+              //accept terms
+              SizedBox(height: context.spacing12),
+              RichText(
+                text: TextSpan(
+                  text: AppStrings.acceptTerms,
+                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                    color: AppPallete.blackColor,
+                    fontSize: 12,
+                    fontWeight: FontWeight.w800,
+                  ),
+                  children: [
+                    TextSpan(
+                      text: AppStrings.privacyPolicy,
+                      style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                        color: AppPallete.primaryColor,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w800,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
 
               // --------- or ---------
               SizedBox(height: context.spacing16),
@@ -114,17 +148,17 @@ class SignInPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    AppStrings.dontHaveAnAccount,
+                    AppStrings.alreadyHaveAnAccount,
                     style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                       color: AppPallete.blackColor,
                     ),
                   ),
                   GestureDetector(
                     onTap: () {
-                      Navigator.push(context, SignUpPage.route());
+                      Navigator.push(context, SignInPage.route());
                     },
                     child: Text(
-                      AppStrings.signUp,
+                      AppStrings.signIn,
                       style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                         color: AppPallete.primaryColor,
                       ),
